@@ -14,7 +14,6 @@ import com.vaadin.tutorial.crm.backend.service.ContactService;
 
 @Route("")
 @CssImport("./styles/shared-styles.css")
-
 public class MainView extends VerticalLayout {
 
     private ContactService contactService;
@@ -42,6 +41,7 @@ public class MainView extends VerticalLayout {
         add(filterText, content, contactForm);
 
         updateList();
+        closeEditor();
 
     }
 
@@ -51,6 +51,10 @@ public class MainView extends VerticalLayout {
         grid.setColumns("firstName", "lastName", "email", "status");
 
         grid.asSingleSelect().addValueChangeListener(event ->
+                editContact(event.getValue()));
+
+        grid.asSingleSelect().addValueChangeListener(event ->
+
                 editContact(event.getValue()));
     }
     public void editContact(Contact contact) {

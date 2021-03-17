@@ -1,6 +1,5 @@
 package com.vaadin.tutorial.crm.ui;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
@@ -57,7 +56,7 @@ public class ContactForm extends FormLayout {
         binder.readBean(contact);
     }
 
-    private Component createButtonsLayout() {
+    private HorizontalLayout createButtonsLayout() {
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         close.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
