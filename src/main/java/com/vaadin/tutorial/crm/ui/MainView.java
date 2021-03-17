@@ -42,12 +42,34 @@ public class MainView extends VerticalLayout {
         add(filterText, content, contactForm);
 
         updateList();
+
     }
+
     private void configureGrid(){
         grid.addClassName("contact-grid");
         grid.setSizeFull();
         grid.setColumns("firstName", "lastName", "email", "status");
+
+        grid.asSingleSelect().addValueChangeListener(event ->
+                editContact(event.getValue()));
     }
+    public void editContact(Contact contact) {
+
+        if (contact == null) {
+            closeEditor();
+        } else {
+            contactForm.setContact(contact);
+            contactForm.setVisible(true);
+            addClassName("editing");
+        }
+    }
+
+    private void closeEditor() {
+        contactForm.setContact(null);
+        contactForm.setVisible(false);
+        removeClassName("editing");
+    }
+
     private void configureFilter(){
         filterText.setPlaceholder("Filter by name...");
         filterText.setClearButtonVisible(true);
