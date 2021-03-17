@@ -29,6 +29,15 @@ public class ContactService {
     public List<Contact> findAll(){
         return contactRepository.findAll();
     }
+
+    public List<Contact> findAll(String stringFilter){
+        if (stringFilter == null || stringFilter.isEmpty()){
+            return contactRepository.findAll();
+        }
+        else {
+            return contactRepository.search(stringFilter);
+        }
+    }
     public long count(){
         return contactRepository.count();
     }
