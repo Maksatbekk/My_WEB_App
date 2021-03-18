@@ -16,7 +16,7 @@ import com.vaadin.tutorial.crm.backend.service.ContactService;
 
 @Route("")
 @CssImport("./styles/shared-styles.css")
-public class MainView extends VerticalLayout {
+public class ListView extends VerticalLayout {
 
     private ContactService contactService;
 
@@ -24,16 +24,13 @@ public class MainView extends VerticalLayout {
     private TextField filterText = new TextField();
     private ContactForm contactForm;
 
-    public MainView(ContactService contactService,
+    public ListView(ContactService contactService,
                     CompanyService companyService) {
         this.contactService = contactService;
         addClassName("list-view");
         setSizeFull();
 
-
-
         configureGrid();
-
 
         contactForm = new ContactForm(companyService.findAll());
         contactForm.addListener(ContactForm.SaveEvent.class, this::saveContact);
@@ -63,10 +60,7 @@ public class MainView extends VerticalLayout {
         Button addContactButton = new Button("Add contact");
         addContactButton.addClickListener(click -> addContact());
 
-
-
         HorizontalLayout toolbar = new HorizontalLayout(filterText, addContactButton);
-
 
         toolbar.addClassName("toolbar");
         return toolbar;
