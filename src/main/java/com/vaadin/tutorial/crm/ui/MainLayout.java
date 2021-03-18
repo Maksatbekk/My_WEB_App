@@ -52,6 +52,5 @@ public class MainLayout extends AppLayout {
 
         addToDrawer(new VerticalLayout(listLink, new RouterLink("Dashboard", DashboardView.class)));
 
-
     }
 }
