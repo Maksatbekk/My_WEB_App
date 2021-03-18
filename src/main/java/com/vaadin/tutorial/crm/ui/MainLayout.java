@@ -9,6 +9,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.tutorial.crm.ui.view.list.ListView;
+import com.vaadin.tutorial.crm.ui.view.list.dashboard.DashboardView;
 
 @CssImport("./styles/shared-styles.css")
 public class MainLayout extends AppLayout {
@@ -19,7 +21,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void createHeader() {
-        H1 logo = new H1("Vaadin CRM");
+        H1 logo = new H1("Contacts");
         logo.addClassName("logo");
 
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
@@ -35,11 +37,11 @@ public class MainLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        RouterLink listLink = new RouterLink("List", ListView.class);
+        RouterLink listLink = new RouterLink("Contact List", ListView.class);
 
         listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
-        addToDrawer(new VerticalLayout(listLink));
+        addToDrawer(new VerticalLayout(listLink, new RouterLink("Dashboard", DashboardView.class)));
 
 
     }

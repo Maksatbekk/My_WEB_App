@@ -1,4 +1,4 @@
-package com.vaadin.tutorial.crm.ui;
+package com.vaadin.tutorial.crm.ui.view.list;
 
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -25,8 +25,8 @@ public class ContactForm extends FormLayout {
     TextField firstName = new TextField("First name");
     TextField lastName = new TextField("Last name");
     EmailField email = new EmailField("Email");
-    ComboBox<Contact.Status> status = new ComboBox<>("Status");
-    ComboBox<Company> company = new ComboBox<>("Company");
+    ComboBox<Contact.Status> status = new ComboBox<>("Grade");
+    ComboBox<Company> company = new ComboBox<>("Faculty");
     Binder<Contact> binder = new BeanValidationBinder<>(Contact.class);
 
     Button save = new Button("Save");

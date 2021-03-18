@@ -58,7 +58,7 @@ public class ContactService {
         if (companyRepository.count() == 0) {
             companyRepository.saveAll(
 
-                    Stream.of("Path-Way Electronics", "E-Tech Management", "Path-E-Tech Management")
+                    Stream.of("Android Developer", "WEB Developer", "Django Developer")
                             .map(Company::new)
                             .collect(Collectors.toList()));
         }
@@ -68,8 +68,8 @@ public class ContactService {
             List<Company> companies = companyRepository.findAll();
             contactRepository.saveAll(
 
-                    Stream.of("Gabrielle Patel", "Brian Robinson", "Eduardo Haugen",
-                            "Koen Johansen", "Alejandro Macdonald", "Angel Karlson", "Yahir Gustavsson", "Haiden Svensson",
+                    Stream.of("Suiorkul Abdykaimov", "Daniil Aleshin", "Kanat Almaz uulu",
+                            "Asan Usonov", "Erlan Alymkulov", "Dastan Asanov", "Abu Avazi", "Haiden Svensson",
                             "Emily Stewart", "Corinne Davis", "Ryann Davis", "Yurem Jackson", "Kelly Gustavsson",
                             "Eileen Walker", "Katelyn Martin", "Israel Carlsson", "Quinn Hansson", "Makena Smith",
                             "Danielle Watson", "Leland Harris", "Gunner Karlsen", "Jamar Olsson", "Lara Martin",
@@ -82,7 +82,7 @@ public class ContactService {
                                 contact.setLastName(split[1]);
                                 contact.setCompany(companies.get(r.nextInt(companies.size())));
                                 contact.setStatus(Contact.Status.values()[r.nextInt(Contact.Status.values().length)]);
-                                String email = (contact.getFirstName() + "." + contact.getLastName() + "@" + contact.getCompany().getName().replaceAll("[\\s-]", "") + ".com").toLowerCase();
+                                String email = (contact.getFirstName() + "." + contact.getLastName() + ("@iaau.edu.kg").toLowerCase());
                                 contact.setEmail(email);
                                 return contact;
                             }).collect(Collectors.toList()));

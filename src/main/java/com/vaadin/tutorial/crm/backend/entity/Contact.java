@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Contact extends AbstractEntity implements Cloneable {
 
     public enum Status {
-        ImportedLead, NotContacted, Contacted, Customer, ClosedLost
+        AndroidDeveloper, BackEndDeveloper, DjangoDeveloper, IOSDeveloper, WEBDesigner
     }
 
     @NotNull
