@@ -1,4 +1,4 @@
-package com.vaadin.tutorial.crm.ui.view.list.dashboard;
+package com.vaadin.tutorial.crm.ui.view.dashboard;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.charts.Chart;
