@@ -30,20 +30,25 @@ public class MainView extends VerticalLayout {
         addClassName("list-view");
         setSizeFull();
 
-        configureGrid();
-        configureFilter();
 
-        contactForm= new ContactForm(companyService.findAll());
+
+        configureGrid();
+
+
+        contactForm = new ContactForm(companyService.findAll());
+        contactForm.addListener(ContactForm.SaveEvent.class, this::saveContact);
+        contactForm.addListener(ContactForm.DeleteEvent.class, this::deleteContact);
+        contactForm.addListener(ContactForm.CloseEvent.class, e -> this.closeEditor());
+        closeEditor();
 
         Div content = new Div(grid, contactForm);
-
         content.addClassName("content");
         content.setSizeFull();
 
-        add(filterText, content, contactForm);
+        add(getToolbar(), content);
+
 
         updateList();
-        closeEditor();
 
     }
 
