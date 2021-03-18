@@ -58,7 +58,7 @@ public class ContactService {
         if (companyRepository.count() == 0) {
             companyRepository.saveAll(
 
-                    Stream.of("Android Developer", "WEB Developer", "Django Developer")
+                    Stream.of("Android Developer", "WEB Developer", "Django Developer", "Not decided")
                             .map(Company::new)
                             .collect(Collectors.toList()));
         }

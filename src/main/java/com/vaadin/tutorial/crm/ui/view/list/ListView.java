@@ -13,17 +13,21 @@ import com.vaadin.tutorial.crm.backend.entity.Contact;
 import com.vaadin.tutorial.crm.backend.service.CompanyService;
 import com.vaadin.tutorial.crm.backend.service.ContactService;
 import com.vaadin.tutorial.crm.ui.MainLayout;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 
 @Route(value="", layout = MainLayout.class)
 @PageTitle("Contacts | Data")
+@Component
+@Scope("prototype")
 public class ListView extends VerticalLayout {
 
-    private ContactService contactService;
+     ContactService contactService;
 
-    private Grid<Contact> grid = new Grid<>(Contact.class);
-    private TextField filterText = new TextField();
-    private ContactForm contactForm;
+     Grid<Contact> grid = new Grid<>(Contact.class);
+     TextField filterText = new TextField();
+     ContactForm contactForm;
 
     public ListView(ContactService contactService,
                     CompanyService companyService) {
